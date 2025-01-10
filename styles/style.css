@@ -1,6 +1,10 @@
 /* styles/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+*{
+  font-family: "Jersey 15", serif;
+}
 body {
-    font-family: Arial, sans-serif;
+    
     margin: 0;
     padding: 0;
     background-color: #2a2a2a;
