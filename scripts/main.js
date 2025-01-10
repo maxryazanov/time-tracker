@@ -30,11 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
       timeDisplay.textContent = formatTime(task.elapsedTime);
   
       const trackButton = document.createElement("button");
-      trackButton.textContent = task.isRunning ? "Стоп" : "Старт";
+      trackButton.textContent = task.isRunning ? "Stop" : "Start";
       trackButton.className = "track-button";
   
       const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Удалить";
+      deleteButton.textContent = "Delete";
       deleteButton.className = "delete-button";
   
       let startTime = task.isRunning ? Date.now() - task.elapsedTime : null;
@@ -67,15 +67,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const tasks = getTasks();
         const currentTask = tasks.find((t) => t.id === task.id);
   
-        if (trackButton.textContent === "Старт") {
+        if (trackButton.textContent === "Start") {
           startTime = Date.now();
-          trackButton.textContent = "Стоп";
+          trackButton.textContent = "Stop";
           currentTask.isRunning = true;
           startInterval();
         } else {
           elapsedTime += Date.now() - startTime;
           startTime = null;
-          trackButton.textContent = "Старт";
+          trackButton.textContent = "Start";
           currentTask.isRunning = false;
           currentTask.elapsedTime = elapsedTime;
           stopInterval();
