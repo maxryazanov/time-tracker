@@ -4,6 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskNameInput = document.getElementById("task-name");
     const linkInput = document.getElementById("link");
     const checkLink = document.getElementById("checklink");
+
+
+    const isChecked = localStorage.getItem("checklinkChecked") === "true";
+    checkLink.checked = isChecked;
+    linkInput.style.display = isChecked ? "block" : "none";
+
+    checkLink.addEventListener("change", function () {
+      const isChecked = checkLink.checked;
+      linkInput.style.display = isChecked ? "block" : "none";
+
+      // Сохраняем состояние чекбокса в localStorage
+      localStorage.setItem("checklinkChecked", isChecked);
+  });
   
     // Load tasks from localStorage
     const loadTasks = () => {
