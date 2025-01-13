@@ -22,9 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const taskItem = document.createElement("li");
       taskItem.className = "task-item";
   
-      const taskLabel = document.createElement("span");
+      const taskLabel = document.createElement("a");
       taskLabel.textContent = task.name;
-  
+      taskLabel.className = "task-label";
+      taskLabel.href =  `${document.getElementById("link").value}`;
+      taskLabel.target = "_blank";
+
       const timeDisplay = document.createElement("span");
       timeDisplay.className = "time-display";
       timeDisplay.textContent = formatTime(task.elapsedTime);
