@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskList = document.getElementById("task-list");
     const addTaskButton = document.getElementById("add-task");
     const taskNameInput = document.getElementById("task-name");
+    const linkInput = document.getElementById("link");
+    const checkLink = document.getElementById("checklink");
   
     // Load tasks from localStorage
     const loadTasks = () => {
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       taskLabel.className = "task-label";
       taskLabel.href =  `${document.getElementById("link").value}`;
       taskLabel.target = "_blank";
-
+      
       const timeDisplay = document.createElement("span");
       timeDisplay.className = "time-display";
       timeDisplay.textContent = formatTime(task.elapsedTime);
@@ -134,7 +136,20 @@ document.addEventListener("DOMContentLoaded", () => {
       addTaskToDOM(newTask);
   
       taskNameInput.value = "";
+      linkInput.value = "";
+
     });
+
+    document.getElementById("checklink").addEventListener("click", function () {
+      const checkbox = document.getElementById("checklink");
+      const linkField = document.getElementById("link");
+  
+      if (checkbox.checked) {
+          linkField.style.display = "block";
+      } else {
+          linkField.style.display = "none";
+      }
+  });
   
     // Initialize tasks
     loadTasks();
