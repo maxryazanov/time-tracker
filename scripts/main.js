@@ -54,14 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const infoButton = document.createElement("button");
     infoButton.textContent = "Info";
-    infoButton.onclick = function () {
-      alert(
-        `Task: ${task.name}\nElapsed Time: ${formatTime(
-          task.elapsedTime
-        )}\nLink: ${task.link}`
-      );
-    };
     infoButton.className = "info-button";
+    infoButton.onclick = function () {
+      Swal.fire({
+        title: `Task: ${task.name}`,
+        html: `Elapsed Time: ${formatTime(task.elapsedTime)}<br />Link:  <a href="${task.link}" target="_blank">${task.link}</a>`,
+        icon: 'info',
+        confirmButtonText: 'Close'
+      });
+    };
+    
 
     const trackButton = document.createElement("button");
     trackButton.textContent = task.isRunning ? "Stop" : "Start";

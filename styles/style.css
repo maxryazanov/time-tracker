@@ -126,6 +126,22 @@ body {
     border-top: 1px solid #333;
 }
 
+.swal2-html-container a{
+  color: #dedede;
+  text-decoration: none;
+}
+.swal2-popup{
+  background: #1c1c1c;
+  color: #fff;
+}
+.swal2-confirm{
+  background: #43368466;
+  color: #fff;
+}
+.swal2-confirm:hover{
+  background: #322862;
+}
+
   @media screen and (max-width: 500px) {
     .container {
       padding: 10px;
