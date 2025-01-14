@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     taskLabel.className = "task-label";
 
     if (checkLink.checked) {
-      taskLabel.href = `${linkInput.value}`;
+      taskLabel.href = task.link;
       taskLabel.target = "_blank";
     }
 
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert(
         `Task: ${task.name}\nElapsed Time: ${formatTime(
           task.elapsedTime
-        )}\nLink: ${linkInput.value}`
+        )}\nLink: ${task.link}`
       );
     };
     infoButton.className = "info-button";
@@ -151,12 +151,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add new task
   addTaskButton.addEventListener("click", () => {
     const taskName = taskNameInput.value.trim();
+    const taskLink = linkInput.value.trim();
     if (taskName === "") return;
 
     const tasks = getTasks();
     const newTask = {
       id: Date.now(),
       name: taskName,
+      link: taskLink,
       isRunning: false,
       elapsedTime: 0,
     };
