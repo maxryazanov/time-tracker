@@ -49,14 +49,15 @@ body {
     border-radius: 4px;
     font-size: 16px;
   }
-  
-  .task-label{
+
+  li a{
     text-decoration: none;
     color: #fff;
   }
-  .task-label:hover{
+  li a:hover{
     text-decoration: underline;
   }
+
   .task-form button {
     padding: 5px 10px;
     background-color: #43368466;
