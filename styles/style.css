@@ -86,4 +86,23 @@ body {
     border: 1px solid #333;
     border-radius: 4px;
   }
+
+  @media screen and (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+    .task-form {
+      flex-direction: column;
+    }
+    .task-form input {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button{
+      padding: 10px !important;
+    }
+  }
   
