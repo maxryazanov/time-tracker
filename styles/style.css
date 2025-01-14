@@ -2,6 +2,9 @@
 *{
   font-family: "Jersey 15", serif;
 }
+header{
+  display: none;
+}
 body {
     
     margin: 0;
@@ -11,7 +14,7 @@ body {
   }
   
   .container {
-    max-width: 800px;
+    max-width: 750px;
     margin: 30px auto;
     padding: 20px;
     background: #1c1c1c66;
@@ -141,6 +144,19 @@ body {
 .swal2-confirm:hover{
   background: #322862;
 }
+aside{
+  position: absolute;
+  top: 0;
+  width: 300px;
+}
+
+  @media screen and (max-width: 1400px){
+
+    aside{
+      position: static;
+      width: 100%;
+    }
+  }
 
   @media screen and (max-width: 500px) {
     .container {
@@ -170,6 +186,12 @@ body {
     }
     .task-label{
       font-size: 20px;
+    }
+    header{
+      display: block;
+    }
+    aside{
+      display: none;
     }
   }
   
