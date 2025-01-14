@@ -1,4 +1,3 @@
-/* styles/style.css */
 @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 *{
   font-family: "Jersey 15", serif;
@@ -87,7 +86,17 @@ body {
     border-radius: 4px;
   }
 
-  @media screen and (max-width: 600px) {
+  .copyright{
+    text-align: center;
+    margin-top: 20px;
+  }
+  .copyright a{
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+
+  @media screen and (max-width: 500px) {
     .container {
       padding: 10px;
     }
@@ -103,6 +112,9 @@ body {
     }
     button{
       padding: 10px !important;
+    }
+    .track-button , .delete-button{
+      padding: 5px 10px !important;
     }
   }
   
