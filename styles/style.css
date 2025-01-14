@@ -99,6 +99,26 @@ body {
     text-decoration: underline;
   }
 
+  .accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+.accordion-header {
+    padding: 15px;
+    cursor: pointer;
+    background-color: #2A2A2A;
+    border-radius: 4px;
+}
+.accordion-header:hover {
+    background-color: #2A2A2A55;
+}
+.accordion-content {
+    display: none;
+    padding: 15px;
+    background-color: #2a2a2a;
+    border-top: 1px solid #333;
+}
 
   @media screen and (max-width: 500px) {
     .container {
