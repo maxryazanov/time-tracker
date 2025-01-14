@@ -52,6 +52,17 @@ document.addEventListener("DOMContentLoaded", () => {
     timeDisplay.className = "time-display";
     timeDisplay.textContent = formatTime(task.elapsedTime);
 
+    const infoButton = document.createElement("button");
+    infoButton.textContent = "Info";
+    infoButton.onclick = function () {
+      alert(
+        `Task: ${task.name}\nElapsed Time: ${formatTime(
+          task.elapsedTime
+        )}\nLink: ${linkInput.value}`
+      );
+    };
+    infoButton.className = "info-button";
+
     const trackButton = document.createElement("button");
     trackButton.textContent = task.isRunning ? "Stop" : "Start";
     trackButton.className = "track-button";
@@ -116,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     taskItem.appendChild(taskLabel);
     taskItem.appendChild(timeDisplay);
+    taskItem.appendChild(infoButton);
     taskItem.appendChild(trackButton);
     taskItem.appendChild(deleteButton);
     taskList.appendChild(taskItem);
