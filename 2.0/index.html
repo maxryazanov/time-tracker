@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TempTracker</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="@sweetalert2/theme-dark/dark.css">
+</head>
+<body>
+  <header>
+      <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header"><img src="images/menu-dots-square-svgrepo-com.svg" alt=""></div>
+            <div class="accordion-content">
+              <h1>Welcome to TempTracker!</h1>
+              <strong>Organize your time wisely.</strong>
+              <p>This tool helps you:</p>
+              <ul>
+                <li><strong>Track your tasks:</strong> Add your to-dos, set priorities, and monitor your progress.</li>
+                <li><strong>Manage your time:</strong> Start a timer for each task to record how long it takes to complete.</li>
+                <li><strong>Analyze your efficiency:</strong> Gain clear insights into where your time is going.</li>
+              </ul>
+              <p><strong>Getting started is easy:</strong></p>
+              <ol>
+                <li>Create a new task.</li>
+                <li>Start the timer to begin tracking.</li>
+                <li>Stop it when the task is complete.</li>
+              </ol>
+              <p><strong>Your time is your most valuable resource. Use it effectively with TempTracker!</strong></p>
+            </div>
+          </div>
+        </div>
+  </header>
+  <div class="container">
+    <h1>TempTracker</h1>
+    <div class="task-form">
+      <input type="text" id="task-name" placeholder="Task Name">
+      <input type="text" id="link" placeholder="Project link">
+      <button id="add-task">Add Task</button>
+    </div>
+    <div class="check">
+      <input type="checkbox" id="checklink">  
+    <label for="checklink">Add link</label>
+    </div>
+    <ul id="task-list"></ul>
+  </div>
+
+  <div class="container">
+    <h2>Add notes</h2>
+    <nav class="navNotes">
+        <input type="text" id="noteText" placeholder="Text of the note">
+        <select id="noteCategory">
+            <option value="work">Work</option>
+            <option value="personal">Personal</option>
+            <option value="ideas">Ideas</option>
+        </select>
+        <button class="nButton" onclick="addNote()">Add</button>
+    </nav>
+    
+    <h2>Notes</h2>
+    <div class="filter-btn">
+        <button class="nButton" onclick="filterNotes('all')">All</button>
+        <button class="nButton" onclick="filterNotes('work')">Work</button>
+        <button class="nButton" onclick="filterNotes('personal')">Personal</button>
+        <button class="nButton" onclick="filterNotes('ideas')">Ideas</button>
+    </div>
+    
+    
+    <div class="notes-container" id="notesList"></div>
+  </div>
+
+  <aside class="left">
+  <div class="container">
+    <h1>Welcome to TempTracker!</h1>
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header"><strong>Organize your time wisely.</strong></div>
+            <div class="accordion-content">
+              <p>This tool helps you:</p>
+              <ul>
+                <li><strong>Track your tasks:</strong> Add your to-dos, set priorities, and monitor your progress.</li>
+                <li><strong>Manage your time:</strong> Start a timer for each task to record how long it takes to complete.</li>
+                <li><strong>Analyze your efficiency:</strong> Gain clear insights into where your time is going.</li>
+              </ul>
+              <p><strong>Getting started is easy:</strong></p>
+              <ol>
+                <li>Create a new task.</li>
+                <li>Start the timer to begin tracking.</li>
+                <li>Stop it when the task is complete.</li>
+              </ol>
+              <p><strong>Your time is your most valuable resource. Use it effectively with TempTracker!</strong></p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <footer>
+    <p class="copyright">&copy; Created by <a href="https://github.com/maxryazanov" target="_blank">MARKONS</a></p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
