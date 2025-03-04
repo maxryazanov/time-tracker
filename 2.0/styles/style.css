@@ -272,7 +272,7 @@ input{
 
   @media screen and (max-width: 1400px){
 
-    aside{
+    .left{
       position: static;
       width: 100%;
     }
@@ -310,7 +310,7 @@ input{
     header{
       display: block;
     }
-    aside{
+    .left{
       display: none;
     }
   }
