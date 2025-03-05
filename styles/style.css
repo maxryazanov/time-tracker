@@ -23,6 +23,12 @@ body {
     border-radius: 8px;
   }
   
+  .fcontainer{
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 20px;
+  }
+
   h1 {
     font-size: 35px;
   }
