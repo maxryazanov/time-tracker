@@ -228,3 +228,4 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [];
         }
 
         renderNotes();
+
