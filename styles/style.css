@@ -23,10 +23,26 @@ body {
     border-radius: 8px;
   }
   
-  .fcontainer{
+  .about{
     max-width: 750px;
     margin: 30px auto;
     padding: 20px;
+  }
+
+  .fcontainer h1{
+    font-size: 20px;
+  }
+
+  .fcontainer p{
+    font-size: 14px;
+  }
+
+  .fcontainer strong{
+    font-size: 14px;
+  }
+
+  .fcontainer ol li, .fcontainer ul li{
+    font-size: 14px;
   }
 
   h1 {
