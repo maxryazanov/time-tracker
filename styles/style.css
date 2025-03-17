@@ -13,6 +13,9 @@ body {
     background-color: #2a2a2a;
     color:#fff;
   }
+.m-l{
+  margin-left: 50px;
+}
   
   .container {
     max-width: 750px;
@@ -249,6 +252,9 @@ h2{
 }
 .filter-btn button{
   font-size: 20px;
+}
+.filter-btn .nButton:last-child{
+  margin-left: auto;
 }
 .nButton {
   padding: 5px 10px;

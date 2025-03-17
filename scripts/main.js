@@ -188,44 +188,97 @@ document.addEventListener("DOMContentLoaded", () => {
   loadTasks();
 });
 
+// let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+//         function addNote() {
+//             const text = document.getElementById('noteText').value;
+//             const category = document.getElementById('noteCategory').value;
+//             const date = new Date().toLocaleString();
+//             if (!text) return;
+//             notes.push({ text, category, date });
+//             localStorage.setItem('notes', JSON.stringify(notes));
+//             document.getElementById('noteText').value = '';
+//             renderNotes();
+//         }
+
+//         function deleteNote(index) {
+//             notes.splice(index, 1);
+//             localStorage.setItem('notes', JSON.stringify(notes));
+//             renderNotes();
+//         }
+
+//         function renderNotes(filter = 'all') {
+//             const notesList = document.getElementById('notesList');
+//             notesList.innerHTML = '';
+//             notes.filter((n, i) => filter === 'all' || n.category === filter)
+//                  .forEach((n, i) => {
+//                      const div = document.createElement('div');
+//                      div.className = `note ${n.category}`;
+//                      div.innerHTML = `
+//                          <p>${n.text}</p>
+//                          <span class="note-date">${n.date}</span>
+//                          <button class="delete-btn" onclick="deleteNote(${i})">&#10006;</button>
+//                      `;
+//                      notesList.appendChild(div);
+//                  });
+//         }
+
+//         function filterNotes(category) {
+//             renderNotes(category);
+//         }
+
+//         renderNotes();
+
 let notes = JSON.parse(localStorage.getItem('notes')) || [];
+let sortOrder = 'desc'; // 'desc' - новые сверху, 'asc' - старые сверху
 
-        function addNote() {
-            const text = document.getElementById('noteText').value;
-            const category = document.getElementById('noteCategory').value;
-            const date = new Date().toLocaleString();
-            if (!text) return;
-            notes.push({ text, category, date });
-            localStorage.setItem('notes', JSON.stringify(notes));
-            document.getElementById('noteText').value = '';
-            renderNotes();
-        }
+function addNote() {
+    const text = document.getElementById('noteText').value;
+    const category = document.getElementById('noteCategory').value;
+    const date = new Date().toISOString(); // ISO-формат для точной сортировки
+    if (!text) return;
+    notes.push({ text, category, date });
+    localStorage.setItem('notes', JSON.stringify(notes));
+    document.getElementById('noteText').value = '';
+    renderNotes();
+}
 
-        function deleteNote(index) {
-            notes.splice(index, 1);
-            localStorage.setItem('notes', JSON.stringify(notes));
-            renderNotes();
-        }
+function deleteNote(index) {
+    notes.splice(index, 1);
+    localStorage.setItem('notes', JSON.stringify(notes));
+    renderNotes();
+}
 
-        function renderNotes(filter = 'all') {
-            const notesList = document.getElementById('notesList');
-            notesList.innerHTML = '';
-            notes.filter((n, i) => filter === 'all' || n.category === filter)
-                 .forEach((n, i) => {
-                     const div = document.createElement('div');
-                     div.className = `note ${n.category}`;
-                     div.innerHTML = `
-                         <p>${n.text}</p>
-                         <span class="note-date">${n.date}</span>
-                         <button class="delete-btn" onclick="deleteNote(${i})">&#10006;</button>
-                     `;
-                     notesList.appendChild(div);
-                 });
-        }
+function toggleSortOrder() {
+    sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
+    document.getElementById('sortOrder').textContent = sortOrder === 'desc' ? 'Newest' : 'Oldest';
+    renderNotes();
+}
 
-        function filterNotes(category) {
-            renderNotes(category);
-        }
+function renderNotes(filter = 'all') {
+    const notesList = document.getElementById('notesList');
+    notesList.innerHTML = '';
 
-        renderNotes();
+    // Сортируем по дате
+    const sortedNotes = [...notes].sort((a, b) => 
+        sortOrder === 'desc' ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date)
+    );
 
+    sortedNotes.filter(n => filter === 'all' || n.category === filter)
+        .forEach((n, i) => {
+            const div = document.createElement('div');
+            div.className = `note ${n.category}`;
+            div.innerHTML = `
+                <p>${n.text}</p>
+                <span class="note-date">${new Date(n.date).toLocaleString()}</span>
+                <button class="delete-btn" onclick="deleteNote(${notes.indexOf(n)})">&#10006;</button>
+            `;
+            notesList.appendChild(div);
+        });
+}
+
+function filterNotes(category) {
+    renderNotes(category);
+}
+
+renderNotes();
