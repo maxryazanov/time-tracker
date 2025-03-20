@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskName = taskNameInput.value.trim();
     const taskLink = linkInput.value.trim();
     const nowDate = new Date();
-    const taskDate = nowDate.toISOString().slice(0, 16).replace('T', ' T:');
+    const taskDate = nowDate.toISOString().slice(0, 16).replace('T', ' ');
     if (taskName === "") return;
 
     const tasks = getTasks();
