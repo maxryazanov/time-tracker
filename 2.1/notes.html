@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заметки</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .note { padding: 10px; margin: 5px 0; border-radius: 5px; }
+        .work { background: #ffdddd; }
+        .personal { background: #ddffdd; }
+        .ideas { background: #ddddff; }
+        .category { margin-right: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Добавить заметку</h2>
+    <input type="text" id="noteText" placeholder="Текст заметки">
+    <select id="noteCategory">
+        <option value="work">Работа</option>
+        <option value="personal">Личное</option>
+        <option value="ideas">Идеи</option>
+    </select>
+    <button onclick="addNote()">Добавить</button>
+    
+    <h2>Заметки</h2>
+    <button onclick="filterNotes('all')">Все</button>
+    <button onclick="filterNotes('work')">Работа</button>
+    <button onclick="filterNotes('personal')">Личное</button>
+    <button onclick="filterNotes('ideas')">Идеи</button>
+    
+    <div id="notesList"></div>
+
+    <script>
+        let notes = JSON.parse(localStorage.getItem('notes')) || [];
+        function addNote() {
+            const text = document.getElementById('noteText').value;
+            const category = document.getElementById('noteCategory').value;
+            if (!text) return;
+            notes.push({ text, category });
+            localStorage.setItem('notes', JSON.stringify(notes));
+            document.getElementById('noteText').value = '';
+            renderNotes();
+        }
+        function renderNotes(filter = 'all') {
+            const notesList = document.getElementById('notesList');
+            notesList.innerHTML = '';
+            notes.filter(n => filter === 'all' || n.category === filter)
+                 .forEach(n => {
+                     const div = document.createElement('div');
+                     div.className = `note ${n.category}`;
+                     div.textContent = n.text;
+                     notesList.appendChild(div);
+                 });
+        }
+        function filterNotes(category) {
+            renderNotes(category);
+        }
+        renderNotes();
+    </script>
+</body>
+</html>
