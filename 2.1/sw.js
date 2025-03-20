@@ -2,8 +2,8 @@ const CACHE_NAME = "tempTracker-cache-v1";
 const STATIC_ASSETS = [
     "/",
     "/index.html",
-    "/style.css",
-    "/app.js",
+    "/styles/style.css",
+    "/scripts/main.js",
     "/icon-192.png",
     "/icon-512.png"
 ];
