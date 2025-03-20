@@ -231,6 +231,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //         renderNotes();
 
+
+
+// Service Worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js")
+      .then(() => console.log("Service Worker зарегистрирован!"))
+      .catch(err => console.error("Ошибка регистрации SW:", err));
+}
+
+
 let notes = JSON.parse(localStorage.getItem('notes')) || [];
 let sortOrder = 'desc'; // 'desc' - новые сверху, 'asc' - старые сверху
 
