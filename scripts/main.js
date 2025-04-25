@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const copiedMsg = document.getElementById('copiedMessage');
     
           copyButton.addEventListener('click', function () {
-            const slackFormatted = `${task.name} (${task.link})`;
+            const slackFormatted = `${task.name} : ${task.link} `;
             navigator.clipboard.writeText(slackFormatted).then(() => {
               copiedMsg.style.display = 'block';
               copiedMsg.textContent = 'Copied!';
