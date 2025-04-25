@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div id="copiedMessage" style="margin-top:10px; color:green; display:none;">Copied!</div>
         `,
         icon: 'info',
-        confirmButtonText: 'Закрыть',
+        confirmButtonText: 'Close',
         didOpen: () => {
           const copyButton = document.getElementById('copyTaskLink');
           const copiedMsg = document.getElementById('copiedMessage');
