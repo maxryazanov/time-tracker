@@ -58,12 +58,39 @@ document.addEventListener("DOMContentLoaded", () => {
     infoButton.onclick = function () {
       Swal.fire({
         title: `Task: ${task.name}`,
-        html: `Created date: ${task.id}<br />Elapsed Time: ${formatTime(task.elapsedTime)}<br />Link:  <a href="${task.link}" target="_blank">${task.link}</a>`,
+        html: `
+          Created date: ${task.id}<br />
+          Elapsed Time: ${formatTime(task.elapsedTime)}<br />
+          Link: <a href="${task.link}" target="_blank">${task.link}</a><br /><br />
+          <button id="copyTaskLink" style="margin-top:10px;padding:6px 12px;">📋 Copy name and link</button>
+          <div id="copiedMessage" style="margin-top:10px; color:green; display:none;">Copied!</div>
+        `,
         icon: 'info',
-        confirmButtonText: 'Close'
-      });
-    };
+        confirmButtonText: 'Закрыть',
+        didOpen: () => {
+          const copyButton = document.getElementById('copyTaskLink');
+          const copiedMsg = document.getElementById('copiedMessage');
     
+          copyButton.addEventListener('click', function () {
+            const slackFormatted = `${task.name} (${task.link})`;
+            navigator.clipboard.writeText(slackFormatted).then(() => {
+              copiedMsg.style.display = 'block';
+              copiedMsg.textContent = 'Copied!';
+              
+              // Hide messages after 2 seconds
+              setTimeout(() => {
+                copiedMsg.style.display = 'none';
+              }, 2000);
+            }).catch(err => {
+              copiedMsg.style.color = 'red';
+              copiedMsg.textContent = 'Error copying!';
+              copiedMsg.style.display = 'block';
+            });
+          });
+        }
+      });    
+    };
+
 
     const trackButton = document.createElement("button");
     trackButton.textContent = task.isRunning ? "Stop" : "Start";
