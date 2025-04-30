@@ -67,6 +67,22 @@ body {
   button:hover {
     background-color: #322862;
   }
+
+  .info-button:hover{
+    background-color: #1976D2!important;
+  }
+  .track-button:hover{
+    background-color: #4CAF50!important;
+  }
+  .start-button:hover{
+    background-color: #4CAF50!important;
+  }
+  .stop-button:hover{
+    background-color: #f44336b8!important;
+  }
+  .delete-button:hover{
+    background-color: #f44336b8!important;
+  }
   
   .task-form {
     display: flex;

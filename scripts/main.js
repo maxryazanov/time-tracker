@@ -57,11 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
     infoButton.className = "info-button";
     infoButton.onclick = function () {
       Swal.fire({
-        title: `Task: ${task.name}`,
+        title: `<i style="font-weight:200;">Task:</i> ${task.name}`,
         html: `
-          Created date: ${task.id}<br />
-          Elapsed Time: ${formatTime(task.elapsedTime)}<br />
-          Link: <a href="${task.link}" target="_blank">${task.link}</a><br /><br />
+          <i style="font-weight:200;">Created date:</i> ${task.id}<br />
+          <i style="font-weight:200;">Elapsed Time:</i> ${formatTime(task.elapsedTime)} <br />
+          <i style="font-weight:200;">Link:</i> <a href="${task.link}" target="_blank">${task.link}</a><br /><br />
           <button id="copyTaskLink" style="margin-top:10px;padding:6px 12px;">📋 Copy name and link</button>
           <div id="copiedMessage" style="margin-top:10px; color:green; display:none;">Copied!</div>
         `,
@@ -133,12 +133,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (trackButton.textContent === "Start") {
         startTime = Date.now();
         trackButton.textContent = "Stop";
+        trackButton.style.backgroundColor = "#F44336";
+        trackButton.classList.remove("start-button");
+        trackButton.classList.add("stop-button");
         currentTask.isRunning = true;
         startInterval();
       } else {
         elapsedTime += Date.now() - startTime;
         startTime = null;
         trackButton.textContent = "Start";
+        trackButton.style.backgroundColor = "#43368466";
+        trackButton.classList.remove("stop-button");
+        trackButton.classList.add("start-button");
         currentTask.isRunning = false;
         currentTask.elapsedTime = elapsedTime;
         stopInterval();
