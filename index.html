@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TempTracker</title>
+  <title>TempTracker — Task and Time Management Tool</title>
+
+  <!-- SEO meta -->
+  <meta name="description" content="TempTracker helps you organize tasks, track time, and boost productivity with ease. Manage tasks, add notes, and analyze your time efficiently.">
+  <meta name="keywords" content="task management, time tracking, productivity, notes, TempTracker">
+  <meta name="author" content="MARKONS">
+
+  <!-- Open Graph (for social sharing) -->
+  <meta property="og:title" content="TempTracker — Task and Time Management Tool">
+  <meta property="og:description" content="Track tasks, manage time, and improve productivity with TempTracker.">
+  <meta property="og:image" content="https://tmpt.pp.ua/images/og-image.png">
+  <meta property="og:url" content="https://tmpt.pp.ua">
+  <meta property="og:type" content="website">
+
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -13,7 +26,7 @@
   <header>
       <div class="accordion">
         <div class="accordion-item">
-            <div class="accordion-header"><img src="images/info.png" width="30" alt=""></div>
+            <div class="accordion-header"><img src="images/info.png" width="30" alt="Information icon"></div>
             <div class="accordion-content">
               <h1 class="ta-c">Welcome to TempTracker!</h1>
               <strong>Organize your time wisely.</strong>
@@ -38,8 +51,8 @@
   <div class="container">
     <h1 class="ta-c">TempTracker</h1>
     <div class="task-form">
-      <input type="text" id="task-name" placeholder="Task Name">
-      <input type="text" id="link" placeholder="Project link">
+      <input type="text" id="task-name" placeholder="Task Name" aria-label="Task Name">
+      <input type="text" id="link" placeholder="Project link" aria-label="Project Link">
       <button id="add-task">Add Task</button>
     </div>
     <div class="check">
@@ -52,8 +65,8 @@
   <div class="container">
     <h2 class="ta-c">Add Notes</h2>
     <nav class="navNotes">
-        <input type="text" id="noteText" placeholder="Text of the note">
-        <select id="noteCategory">
+        <input type="text" id="noteText" placeholder="Text of the note" aria-label="Note text">
+        <select id="noteCategory" aria-label="Note category">
             <option value="work">Work</option>
             <option value="personal">Personal</option>
             <option value="ideas">Ideas</option>
@@ -101,7 +114,7 @@
     </div>
 
     <footer>
-      <p class="copyright">&copy; Created by <a href="https://github.com/maxryazanov" target="_blank">MARKONS</a></p>
+      <p class="copyright">&copy; Created by <a href="https://github.com/maxryazanov" target="_blank" rel="noopener">MARKONS</a></p>
     </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
