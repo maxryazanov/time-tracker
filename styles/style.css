@@ -16,6 +16,9 @@ body {
 .m-l{
   margin-left: 50px;
 }
+.hide{
+  display: none;
+}
   
   .container {
     max-width: 750px;
