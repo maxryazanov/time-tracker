@@ -1,6 +1,8 @@
 User-agent: *
+Allow: /
 Disallow: /1.0/
 Disallow: /2.0/
 Disallow: /2.1/
+
 
 Sitemap: https://tmpt.pp.ua/sitemap.xml
